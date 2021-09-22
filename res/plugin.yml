@@ -1,0 +1,8 @@
+name: ActionBarCompass
+author: LADBukkit
+main: de.ladbukkit.actionbarcompass.ActionBarCompass
+version: ${version}
+
+commands:
+  track:
+    description: Allows the player to track a coordinate with the action bar.

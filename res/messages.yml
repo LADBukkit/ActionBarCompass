@@ -1,0 +1,24 @@
+noPermission: '&cYou do not have the right permission to use this command!'
+wrongWorld: '&cYou are not in the same world as the track!'
+trackFormat: '&f%left% &e%distance%m &f%right%'
+command:
+  console: '&cThis command can only be executed as a player!'
+  help: |-
+    &7Usage of &e/track
+    &e/track &8--- &7Shows the help message.
+    &e/track <name> &8--- &7Tracks a certain place.
+    &e/track stop &8--- &7Stops the tracking.
+  helpadmin: |-
+    &7Admin section:
+    &e/track add <name> &8--- &7Adds a track with your current coordiantes to the config.
+    &e/track add <name> <x> <z> &8--- &7Adds a track with specific coordinates to the config.
+    &e/track remove <name> &8--- &7Removes a track from the config.
+  trackNotFound: '&cThis track does not exist!'
+  trackExists: '&cThis track already exists!'
+  couldNotSave: '&cThe config could not be saved!'
+  notANumber: '&cThose coordinates are not a number!'
+  notTracking: '&cYou are currently not tracking a location!'
+  save: '&eThe track was successfully created.'
+  remove: '&eThe track was successfully removed.'
+  setTrack: '&eYou are now tracking &7%track%&e.'
+  stopTrack: '&eYou stopped tracking.'
