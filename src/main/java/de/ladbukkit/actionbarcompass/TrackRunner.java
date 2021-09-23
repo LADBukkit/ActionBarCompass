@@ -10,6 +10,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -37,6 +39,9 @@ public class TrackRunner extends BukkitRunnable {
 
     @Override
     public void run() {
+        // A set with all done players to dodge a concurrent modification when a player is at the destination
+        Set<UUID> done = new HashSet<>();
+
         String trackFormat = plugin.getMessageConfig().get("trackFormat");
         tracking.forEach((uuid, location) -> {
             Player p = Bukkit.getPlayer(uuid);
@@ -45,6 +50,13 @@ public class TrackRunner extends BukkitRunnable {
                     Location pLoc = p.getLocation().clone();
                     pLoc.setY(0);
                     double distance = location.distance(pLoc);
+
+                    if(distance < 10) {
+                        p.sendMessage(plugin.getMessageConfig().get("arrived"));
+                        done.add(uuid);
+                        return;
+                    }
+
                     StringBuilder right = new StringBuilder();
                     StringBuilder left = new StringBuilder();
 
@@ -79,6 +91,9 @@ public class TrackRunner extends BukkitRunnable {
                 }
             }
         });
+
+        // Remove done players from tracking
+        done.forEach(this::unsetTracking);
     }
 
     /**

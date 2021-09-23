@@ -1,6 +1,7 @@
 noPermission: '&cYou do not have the right permission to use this command!'
 wrongWorld: '&cYou are not in the same world as the track!'
 trackFormat: '&f%left% &e%distance%m &f%right%'
+arrived: '&eYou have arrived at your destination.'
 command:
   console: '&cThis command can only be executed as a player!'
   help: |-
